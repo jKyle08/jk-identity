@@ -4,7 +4,7 @@ A reusable, enterprise-grade Identity & Authentication package for NestJS applic
 
 **Package:** `@apxon-jk/identity`
 
-> **Early access (v0.3.x)** — This package is usable and tested, but you must provide your own adapters (database, email, audit). Memory adapters live in this repository under `examples/memory` and are **not** published to npm yet. Clone the repo for the playground and reference implementations.
+> **Early access (v0.3.x)** — **Distribution:** Clone from [GitHub](https://github.com/jKyle08/jk-identity). npm registry publish is optional and planned later (requires npm 2FA). You must provide your own adapters (database, email, audit) for production. Memory adapters live under `examples/memory`. See [docs/integration.md](docs/integration.md) for clone, `file:`, and GitHub install options.
 
 ---
 
@@ -226,11 +226,37 @@ Ports are defined but not yet implemented. Wire adapters when adding these featu
 | | |
 |---|---|
 | **Current Version** | v0.3.0 |
-| **Status** | Early access — adapters required |
+| **Status** | Early access — clone-first, adapters required |
+| **Distribution** | GitHub clone (`file:` / git install). npm optional later |
 
 ---
 
 ## Install
+
+**Clone first** (recommended):
+
+```bash
+git clone https://github.com/jKyle08/jk-identity.git
+cd jk-identity
+npm install
+npm run build
+npm run playground   # try the API at http://localhost:3000
+```
+
+**Use in your own NestJS app** (sibling project):
+
+```json
+{
+  "dependencies": {
+    "@apxon-jk/identity": "file:../jk-identity/packages/identity",
+    "@apxon-jk/identity-memory": "file:../jk-identity/examples/memory"
+  }
+}
+```
+
+See [docs/integration.md](docs/integration.md) for GitHub install, `npm link`, and tarball options.
+
+**npm registry** (when published):
 
 ```bash
 npm install @apxon-jk/identity
@@ -285,15 +311,21 @@ npm run build
 npm run lint
 npm test
 npm run playground   # http://localhost:3000 — Swagger at /api
+npm run consumer     # external-app example at http://localhost:3001
+npm run pack:identity   # create installable .tgz without npm registry
 ```
+
+Copy `.env.example` to `.env` for JWT secrets when running locally.
 
 ### Documentation
 
 See [docs/README.md](docs/README.md) for integration guides, adapter examples, and architecture.
 
+Start with [docs/integration.md](docs/integration.md) for clone-first setup.
+
 ### Memory Adapters (local dev / testing — repo only)
 
-Memory adapters are available when you **clone this repository**. They are not published to npm.
+Memory adapters are available when you **clone this repository**.
 
 ```typescript
 import { createMemoryAdapters } from '@apxon-jk/identity-memory';

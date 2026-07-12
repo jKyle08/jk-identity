@@ -4,7 +4,8 @@ Developer documentation for integrating `@apxon-jk/identity` into NestJS applica
 
 ## Contents
 
-- [Getting Started](./getting-started.md) — Installation, quick start, playground
+- [Getting Started](./getting-started.md) — Clone, quick start, playground
+- [Integration](./integration.md) — Clone-first: `file:`, GitHub, link, tarball
 - [Architecture](./architecture.md) — Layers, dependency rules, domain model
 - [Adapters](./adapters.md) — Building custom repository and adapter implementations
 - [Events](./events.md) — Domain events and EventBus
@@ -16,8 +17,9 @@ Developer documentation for integrating `@apxon-jk/identity` into NestJS applica
 ```
 jk-identity/
 ├── packages/identity/     # @apxon-jk/identity package
-├── apps/playground/       # Runnable demo app
+├── apps/playground/       # Runnable demo app (monorepo workspace)
 ├── examples/memory/       # In-memory reference adapters
+├── examples/consumer-nest-app/  # External app via file: deps
 └── docs/                  # This documentation
 ```
 

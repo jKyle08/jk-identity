@@ -13,6 +13,7 @@ npm-debug.log*
 # Environment
 .env
 .env.*
+!.env.example
 
 # OS
 .DS_Store
@@ -30,3 +31,6 @@ coverage/
 # Cache
 .cache/
 .eslintcache
+
+# npm pack output
+*.tgz
