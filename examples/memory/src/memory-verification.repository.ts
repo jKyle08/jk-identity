@@ -1,3 +1,4 @@
+import { randomUUID } from 'crypto';
 import {
   PasswordResetToken,
   VerificationToken,
@@ -19,7 +20,7 @@ export class MemoryVerificationRepository {
     tokenHash: string,
     expiresAt: Date,
   ): VerificationToken {
-    const id = crypto.randomUUID();
+    const id = randomUUID();
     const token = VerificationToken.create({
       id,
       identityId,
@@ -53,7 +54,7 @@ export class MemoryVerificationRepository {
     tokenHash: string,
     expiresAt: Date,
   ): PasswordResetToken {
-    const id = crypto.randomUUID();
+    const id = randomUUID();
     const token = PasswordResetToken.create({
       id,
       identityId,

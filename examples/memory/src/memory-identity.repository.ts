@@ -1,3 +1,4 @@
+import { randomUUID } from 'crypto';
 import {
   AccountStatus,
   CreateIdentityInput,
@@ -44,7 +45,7 @@ export class MemoryIdentityRepository implements IdentityRepository {
   }
 
   async create(input: CreateIdentityInput): Promise<Identity> {
-    const id = crypto.randomUUID();
+    const id = randomUUID();
     const email = normalizeEmail(input.primaryEmail);
 
     if (this.byEmail.has(email)) {

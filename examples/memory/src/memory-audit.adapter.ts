@@ -1,3 +1,4 @@
+import { randomUUID } from 'crypto';
 import {
   AuditAdapter,
   AuditEvent,
@@ -17,7 +18,7 @@ export class MemoryAuditAdapter implements AuditAdapter {
   async recordLogin(identityId: string, metadata?: LoginAuditMetadata): Promise<void> {
     this.events.push(
       AuditEvent.create({
-        id: crypto.randomUUID(),
+        id: randomUUID(),
         identityId,
         type: AuditEventType.LOGIN,
         ipAddress: metadata?.ipAddress,
@@ -33,7 +34,7 @@ export class MemoryAuditAdapter implements AuditAdapter {
   async recordLogout(identityId: string, sessionId?: string): Promise<void> {
     this.events.push(
       AuditEvent.create({
-        id: crypto.randomUUID(),
+        id: randomUUID(),
         identityId,
         type: AuditEventType.LOGOUT,
         metadata: sessionId ? { sessionId } : undefined,
@@ -48,7 +49,7 @@ export class MemoryAuditAdapter implements AuditAdapter {
   ): Promise<void> {
     this.events.push(
       AuditEvent.create({
-        id: crypto.randomUUID(),
+        id: randomUUID(),
         type: AuditEventType.FAILED_LOGIN,
         failureReason: reason,
         metadata: { email, ...metadata },
@@ -63,7 +64,7 @@ export class MemoryAuditAdapter implements AuditAdapter {
   ): Promise<void> {
     this.events.push(
       AuditEvent.create({
-        id: crypto.randomUUID(),
+        id: randomUUID(),
         identityId,
         type: toAuditEventType(type),
         metadata,

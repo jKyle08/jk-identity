@@ -1,3 +1,4 @@
+import { randomUUID } from 'crypto';
 import {
   IdentityProvider,
   LinkProviderInput,
@@ -22,7 +23,7 @@ export class MemoryIdentityProviderRepository {
   }
 
   link(input: LinkProviderInput): IdentityProvider {
-    const id = crypto.randomUUID();
+    const id = randomUUID();
     const provider = IdentityProvider.create({
       id,
       identityId: input.identityId,

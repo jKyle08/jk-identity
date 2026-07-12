@@ -1,3 +1,4 @@
+import { randomUUID } from 'crypto';
 import {
   CreateSessionInput,
   CreateSessionResult,
@@ -28,8 +29,8 @@ export class MemorySessionRepository implements SessionRepository {
   }
 
   async createSession(input: CreateSessionInput): Promise<CreateSessionResult> {
-    const sessionId = crypto.randomUUID();
-    const refreshTokenId = crypto.randomUUID();
+    const sessionId = randomUUID();
+    const refreshTokenId = randomUUID();
     const now = new Date();
 
     const refreshToken = RefreshToken.create({
@@ -102,7 +103,7 @@ export class MemorySessionRepository implements SessionRepository {
       this.refreshTokenByHash.delete(oldToken.tokenHash);
     }
 
-    const newRefreshTokenId = crypto.randomUUID();
+    const newRefreshTokenId = randomUUID();
     const newRefreshToken = RefreshToken.create({
       id: newRefreshTokenId,
       identityId: session.identityId,

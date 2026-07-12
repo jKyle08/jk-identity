@@ -1,11 +1,11 @@
-import { randomBytes } from 'crypto';
+import { randomBytes, randomUUID } from 'crypto';
 
 export function generateSecureToken(bytes = 32): string {
   return randomBytes(bytes).toString('hex');
 }
 
 export function generateId(): string {
-  return crypto.randomUUID();
+  return randomUUID();
 }
 
 export function addHours(date: Date, hours: number): Date {
