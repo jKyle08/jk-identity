@@ -1,0 +1,11 @@
+export { DomainEvent } from './domain-event';
+export { IdentityCreatedEvent } from './identity-created.event';
+export { IdentityLoggedInEvent } from './identity-logged-in.event';
+export { IdentityLoggedOutEvent } from './identity-logged-out.event';
+export { PasswordChangedEvent } from './password-changed.event';
+export { PasswordResetEvent } from './password-reset.event';
+export { EmailVerifiedEvent } from './email-verified.event';
+export { ProviderLinkedEvent } from './provider-linked.event';
+export { ProviderUnlinkedEvent } from './provider-unlinked.event';
+export { SessionCreatedEvent } from './session-created.event';
+export { SessionRevokedEvent } from './session-revoked.event';

@@ -1,0 +1,29 @@
+{
+  "name": "jk-identity",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A reusable, enterprise-grade Identity & Authentication package for NestJS applications using Clean Architecture and Hexagonal Architecture (Ports & Adapters).",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "npm run build --workspace=@jk/identity",
+    "lint": "npm run lint --workspace=@jk/identity",
+    "format": "prettier --write \"**/*.{ts,json,md}\""
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jKyle08/jk-identity.git"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.18.0",
+    "eslint": "^9.18.0",
+    "eslint-config-prettier": "^10.0.1",
+    "prettier": "^3.4.2",
+    "typescript-eslint": "^8.21.0"
+  }
+}
