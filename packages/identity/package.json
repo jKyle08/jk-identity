@@ -67,5 +67,20 @@
     "oauth",
     "argon2"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jKyle08/jk-identity.git",
+    "directory": "packages/identity"
+  },
+  "bugs": {
+    "url": "https://github.com/jKyle08/jk-identity/issues"
+  },
+  "homepage": "https://github.com/jKyle08/jk-identity#readme",
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=18"
+  }
 }

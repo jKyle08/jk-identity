@@ -4,6 +4,8 @@ A reusable, enterprise-grade Identity & Authentication package for NestJS applic
 
 **Package:** `@jk/identity`
 
+> **Early access (v0.3.x)** — This package is usable and tested, but you must provide your own adapters (database, email, audit). Memory adapters live in this repository under `examples/memory` and are **not** published to npm yet. Clone the repo for the playground and reference implementations.
+
 ---
 
 ## Vision
@@ -223,8 +225,8 @@ Ports are defined but not yet implemented. Wire adapters when adding these featu
 
 | | |
 |---|---|
-| **Current Version** | v0.2.0 |
-| **Status** | 🚧 Under Active Development |
+| **Current Version** | v0.3.0 |
+| **Status** | Early access — adapters required |
 
 ---
 
@@ -289,9 +291,11 @@ npm run playground   # http://localhost:3000 — Swagger at /api
 
 See [docs/README.md](docs/README.md) for integration guides, adapter examples, and architecture.
 
-### Memory Adapters (local dev / testing)
+### Memory Adapters (local dev / testing — repo only)
 
-```bash
+Memory adapters are available when you **clone this repository**. They are not published to npm.
+
+```typescript
 import { createMemoryAdapters } from '@jk/identity-memory';
 ```
 
