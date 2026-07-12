@@ -1,5 +1,5 @@
 {
-  "name": "@jk/identity",
+  "name": "@apxon-jk/identity",
   "version": "0.3.0",
   "description": "A reusable, enterprise-grade Identity & Authentication package for NestJS applications using Clean Architecture and Hexagonal Architecture (Ports & Adapters).",
   "main": "dist/index.js",
@@ -31,7 +31,7 @@
     "argon2": "^0.41.1"
   },
   "devDependencies": {
-    "@jk/identity-memory": "*",
+    "@apxon-jk/identity-memory": "*",
     "@nestjs/common": "^11.0.0",
     "@nestjs/core": "^11.0.0",
     "@nestjs/jwt": "^11.0.0",

@@ -1,13 +1,13 @@
 # Events
 
-`@jk/identity` publishes **domain events** when significant identity actions occur. Future packages (billing, notifications, analytics) can subscribe without tight coupling.
+`@apxon-jk/identity` publishes **domain events** when significant identity actions occur. Future packages (billing, notifications, analytics) can subscribe without tight coupling.
 
 ## EventBus
 
 The module wires an `InMemoryEventBus` by default. Subscribe via `IdentityService`:
 
 ```typescript
-import { IdentityService, IdentityCreatedEvent } from '@jk/identity';
+import { IdentityService, IdentityCreatedEvent } from '@apxon-jk/identity';
 
 @Injectable()
 export class OnboardingService {
@@ -60,7 +60,7 @@ Use cases publish events **after** successful persistence. Subscribers should be
 Inject `EVENT_BUS` for lower-level access:
 
 ```typescript
-import { EVENT_BUS, EventBus } from '@jk/identity';
+import { EVENT_BUS, EventBus } from '@apxon-jk/identity';
 
 @Injectable()
 export class AuditEventForwarder {

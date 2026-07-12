@@ -1,14 +1,14 @@
-# @jk/identity-memory
+# @apxon-jk/identity-memory
 
-In-memory reference adapters for [`@jk/identity`](../../packages/identity). Use these to run the package locally without PostgreSQL, Prisma, or external services.
+In-memory reference adapters for [`@apxon-jk/identity`](../../packages/identity). Use these to run the package locally without PostgreSQL, Prisma, or external services.
 
 **Not for production.**
 
 ## Usage
 
 ```ts
-import { IdentityModule } from '@jk/identity';
-import { createMemoryAdapters } from '@jk/identity-memory';
+import { IdentityModule } from '@apxon-jk/identity';
+import { createMemoryAdapters } from '@apxon-jk/identity-memory';
 
 const adapters = createMemoryAdapters();
 

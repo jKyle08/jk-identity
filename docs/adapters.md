@@ -13,7 +13,7 @@ import {
   IdentityRepository,
   CreateIdentityInput,
   ProviderType,
-} from '@jk/identity';
+} from '@apxon-jk/identity';
 
 export class PrismaIdentityRepository implements IdentityRepository {
   async findById(id: string): Promise<Identity | null> {
@@ -59,10 +59,10 @@ export class PrismaIdentityRepository implements IdentityRepository {
 
 ### Reference: Memory Adapter
 
-Use `@jk/identity-memory` for development and tests:
+Use `@apxon-jk/identity-memory` for development and tests:
 
 ```typescript
-import { createMemoryAdapters } from '@jk/identity-memory';
+import { createMemoryAdapters } from '@apxon-jk/identity-memory';
 
 const adapters = createMemoryAdapters();
 // adapters.identityRepository implements IdentityRepository
@@ -79,7 +79,7 @@ Key methods:
 - `createPasswordResetToken` / `findPasswordResetTokenByHash`
 
 ```typescript
-import { SessionRepository, CreateSessionInput } from '@jk/identity';
+import { SessionRepository, CreateSessionInput } from '@apxon-jk/identity';
 
 export class PrismaSessionRepository implements SessionRepository {
   async createSession(input: CreateSessionInput) {
@@ -105,7 +105,7 @@ Sends transactional emails. The package calls:
 - `sendLoginNotification(to, metadata)` — optional, when `sendLoginNotification: true`
 
 ```typescript
-import { EmailAdapter } from '@jk/identity';
+import { EmailAdapter } from '@apxon-jk/identity';
 
 export class SendGridEmailAdapter implements EmailAdapter {
   async sendVerificationEmail(to: string, token: string, identityName?: string) {
@@ -125,7 +125,7 @@ export class SendGridEmailAdapter implements EmailAdapter {
 Records security-relevant events:
 
 ```typescript
-import { AuditAdapter, SecurityEventType } from '@jk/identity';
+import { AuditAdapter, SecurityEventType } from '@apxon-jk/identity';
 
 export class PostgresAuditAdapter implements AuditAdapter {
   async recordLogin(identityId: string, metadata?) {

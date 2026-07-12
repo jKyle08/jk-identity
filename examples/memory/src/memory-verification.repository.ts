@@ -2,7 +2,7 @@ import { randomUUID } from 'crypto';
 import {
   PasswordResetToken,
   VerificationToken,
-} from '@jk/identity';
+} from '@apxon-jk/identity';
 
 /**
  * In-memory store for email verification and password reset tokens.

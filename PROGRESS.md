@@ -1,4 +1,4 @@
-# Project Progress — `@jk/identity` v0.3.0
+# Project Progress — `@apxon-jk/identity` v0.3.0
 
 **Status:** ✅ Developer Experience phase complete  
 **Git:** [github.com/jKyle08/jk-identity](https://github.com/jKyle08/jk-identity)  
@@ -20,7 +20,7 @@
 | **Tests** | **✅ Done** | Unit, integration, e2e (38 tests) |
 | **CI/CD** | **✅ Done** | Lint, build, test, coverage on push/PR |
 | **Playground** | **✅ Done** | `apps/playground` with Swagger |
-| **Memory adapters** | **✅ Done** | `examples/memory` (`@jk/identity-memory`) |
+| **Memory adapters** | **✅ Done** | `examples/memory` (`@apxon-jk/identity-memory`) |
 
 ---
 
@@ -28,8 +28,8 @@
 
 ### Playground (`apps/playground`)
 
-- NestJS app consuming `@jk/identity` via public exports only
-- Wired with `createMemoryAdapters()` from `@jk/identity-memory`
+- NestJS app consuming `@apxon-jk/identity` via public exports only
+- Wired with `createMemoryAdapters()` from `@apxon-jk/identity-memory`
 - Swagger at `/api`
 - Run: `npm run playground`
 
@@ -69,9 +69,9 @@ Install → Lint → Build → Unit → Integration → E2E → Coverage (Node 1
 
 ```
 jk-identity/
-├── packages/identity/     # @jk/identity
+├── packages/identity/     # @apxon-jk/identity
 ├── apps/playground/       # Demo NestJS app
-├── examples/memory/       # @jk/identity-memory
+├── examples/memory/       # @apxon-jk/identity-memory
 ├── docs/                  # Developer documentation
 └── .github/workflows/     # CI pipeline
 ```
@@ -91,4 +91,4 @@ jk-identity/
 
 ## Bottom Line
 
-`@jk/identity` v0.3.0 is a **developer-ready platform**: clone, run the playground, use memory adapters immediately, and integrate into a NestJS app in under 30 minutes using the docs and reference implementations.
+`@apxon-jk/identity` v0.3.0 is a **developer-ready platform**: clone, run the playground, use memory adapters immediately, and integrate into a NestJS app in under 30 minutes using the docs and reference implementations.

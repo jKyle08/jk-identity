@@ -1,6 +1,6 @@
 # Identity Playground
 
-A minimal NestJS application that consumes `@jk/identity` exactly like an external application would — **only through public package exports**.
+A minimal NestJS application that consumes `@apxon-jk/identity` exactly like an external application would — **only through public package exports**.
 
 ## Quick Start
 
@@ -33,7 +33,7 @@ Copy `.env.example` to `.env` and adjust as needed:
 
 ## API Endpoints
 
-All endpoints are provided by `@jk/identity` controllers:
+All endpoints are provided by `@apxon-jk/identity` controllers:
 
 ```
 POST   /auth/register
@@ -77,7 +77,7 @@ curl -X POST http://localhost:3000/auth/login \
 
 This app imports only from:
 
-- `@jk/identity` — the identity package public API
-- `@jk/identity-memory` — reference in-memory adapters
+- `@apxon-jk/identity` — the identity package public API
+- `@apxon-jk/identity-memory` — reference in-memory adapters
 
 It never imports internal source files from `packages/identity/src`.

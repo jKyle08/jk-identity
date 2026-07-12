@@ -1,6 +1,6 @@
 # Architecture
 
-`@jk/identity` follows **Clean Architecture** and **Hexagonal Architecture (Ports & Adapters)**.
+`@apxon-jk/identity` follows **Clean Architecture** and **Hexagonal Architecture (Ports & Adapters)**.
 
 ## Layer Overview
 

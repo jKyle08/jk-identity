@@ -1,10 +1,10 @@
 import { validateIdentityModuleOptions } from '../../../src/config/validate-identity-module.options';
-import { createMemoryAdapters } from '@jk/identity-memory';
+import { createMemoryAdapters } from '@apxon-jk/identity-memory';
 
 describe('validateIdentityModuleOptions', () => {
   it('throws when options object is missing', () => {
     expect(() => validateIdentityModuleOptions(undefined as never)).toThrow(
-      '@jk/identity: IdentityModule.register() requires an options object',
+      '@apxon-jk/identity: IdentityModule.register() requires an options object',
     );
   });
 

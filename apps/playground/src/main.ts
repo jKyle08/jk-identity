@@ -17,7 +17,7 @@ async function bootstrap() {
   const config = new DocumentBuilder()
     .setTitle('JK Identity Playground')
     .setDescription(
-      'Reference NestJS application consuming @jk/identity via public package exports only.',
+      'Reference NestJS application consuming @apxon-jk/identity via public package exports only.',
     )
     .setVersion('0.3.0')
     .addBearerAuth()

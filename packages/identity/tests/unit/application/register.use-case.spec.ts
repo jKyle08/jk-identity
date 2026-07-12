@@ -1,5 +1,5 @@
 import { Test } from '@nestjs/testing';
-import { createMemoryAdapters } from '@jk/identity-memory';
+import { createMemoryAdapters } from '@apxon-jk/identity-memory';
 import { RegisterUseCase } from '../../../src/application/use-cases/register.use-case';
 import { PasswordService } from '../../../src/application/services/password.service';
 import { EmailVerificationService } from '../../../src/application/services/email-verification.service';

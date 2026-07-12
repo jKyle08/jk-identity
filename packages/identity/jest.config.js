@@ -14,8 +14,8 @@ module.exports = {
   coverageDirectory: 'coverage',
   testEnvironment: 'node',
   moduleNameMapper: {
-    '^@jk/identity-memory$': '<rootDir>/../../examples/memory/src/index.ts',
-    '^@jk/identity$': '<rootDir>/src/index.ts',
-    '^@jk/identity/(.*)$': '<rootDir>/src/$1',
+    '^@apxon-jk/identity-memory$': '<rootDir>/../../examples/memory/src/index.ts',
+    '^@apxon-jk/identity$': '<rootDir>/src/index.ts',
+    '^@apxon-jk/identity/(.*)$': '<rootDir>/src/$1',
   },
 };

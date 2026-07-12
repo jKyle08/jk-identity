@@ -1,6 +1,6 @@
 # Contributing to JK Identity
 
-Thank you for your interest in contributing to `@jk/identity`.
+Thank you for your interest in contributing to `@apxon-jk/identity`.
 
 ## Getting Started
 

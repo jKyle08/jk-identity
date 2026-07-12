@@ -3,7 +3,7 @@ import {
   IdentityProvider,
   LinkProviderInput,
   ProviderType,
-} from '@jk/identity';
+} from '@apxon-jk/identity';
 
 /**
  * In-memory store for OAuth and email identity providers.

@@ -1,6 +1,6 @@
 import { INestApplication, ValidationPipe } from '@nestjs/common';
 import { Test, TestingModule } from '@nestjs/testing';
-import { createMemoryAdapters, MemoryAdaptersBundle } from '@jk/identity-memory';
+import { createMemoryAdapters, MemoryAdaptersBundle } from '@apxon-jk/identity-memory';
 import { IdentityModule, IdentityModuleOptions } from '../../src';
 
 export const TEST_AUTH_CONFIG = {

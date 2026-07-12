@@ -23,7 +23,7 @@ export function validateIdentityModuleOptions(options: IdentityModuleOptions): v
 
   if (!options) {
     throw new Error(
-      '@jk/identity: IdentityModule.register() requires an options object. ' +
+      '@apxon-jk/identity: IdentityModule.register() requires an options object. ' +
         'See https://github.com/jKyle08/jk-identity#documentation for setup.',
     );
   }
@@ -31,14 +31,14 @@ export function validateIdentityModuleOptions(options: IdentityModuleOptions): v
   if (!options.adapters) {
     errors.push(
       'adapters — provide identityRepository, sessionRepository, emailAdapter, and auditAdapter. ' +
-        'Use createMemoryAdapters() from @jk/identity-memory for local development.',
+        'Use createMemoryAdapters() from @apxon-jk/identity-memory for local development.',
     );
   } else {
     for (const key of REQUIRED_ADAPTER_KEYS) {
       if (!options.adapters[key]) {
         errors.push(
           `adapters.${key} — required adapter is missing. ` +
-            `Implement the ${key} port or use a reference adapter from @jk/identity-memory.`,
+            `Implement the ${key} port or use a reference adapter from @apxon-jk/identity-memory.`,
         );
       }
     }
@@ -57,7 +57,7 @@ export function validateIdentityModuleOptions(options: IdentityModuleOptions): v
 
   if (errors.length > 0) {
     throw new Error(
-      `@jk/identity configuration error:\n` +
+      `@apxon-jk/identity configuration error:\n` +
         errors.map((e) => `  • ${e}`).join('\n') +
         '\n\nExample:\n' +
         '  IdentityModule.register({\n' +

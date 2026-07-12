@@ -6,7 +6,7 @@ import {
   LoginAuditMetadata,
   SecurityEventType,
   toAuditEventType,
-} from '@jk/identity';
+} from '@apxon-jk/identity';
 
 /**
  * In-memory implementation of {@link AuditAdapter}.

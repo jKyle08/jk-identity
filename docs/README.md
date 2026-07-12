@@ -1,6 +1,6 @@
-# @jk/identity Documentation
+# @apxon-jk/identity Documentation
 
-Developer documentation for integrating `@jk/identity` into NestJS applications.
+Developer documentation for integrating `@apxon-jk/identity` into NestJS applications.
 
 ## Contents
 
@@ -15,7 +15,7 @@ Developer documentation for integrating `@jk/identity` into NestJS applications.
 
 ```
 jk-identity/
-├── packages/identity/     # @jk/identity package
+├── packages/identity/     # @apxon-jk/identity package
 ├── apps/playground/       # Runnable demo app
 ├── examples/memory/       # In-memory reference adapters
 └── docs/                  # This documentation

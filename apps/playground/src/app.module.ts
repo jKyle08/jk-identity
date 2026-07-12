@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { IdentityModule } from '@jk/identity';
+import { IdentityModule } from '@apxon-jk/identity';
 import { adapters } from './adapters';
 import { DevController } from './dev.controller';
 

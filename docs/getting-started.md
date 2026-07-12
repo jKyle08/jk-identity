@@ -3,7 +3,7 @@
 ## Installation
 
 ```bash
-npm install @jk/identity
+npm install @apxon-jk/identity
 ```
 
 Peer dependencies (install in your NestJS app):
@@ -16,19 +16,19 @@ For local development without a database, also install the memory adapters from 
 
 ```bash
 # When using the monorepo
-npm install @jk/identity-memory
+npm install @apxon-jk/identity-memory
 ```
 
 ## Quick Start
 
-1. Implement the required adapter ports (or use `createMemoryAdapters()` from `@jk/identity-memory`).
+1. Implement the required adapter ports (or use `createMemoryAdapters()` from `@apxon-jk/identity-memory`).
 2. Register `IdentityModule` in your `AppModule`.
 3. Use the built-in REST controllers or inject use cases/services directly.
 
 ```typescript
 import { Module } from '@nestjs/common';
-import { IdentityModule } from '@jk/identity';
-import { createMemoryAdapters } from '@jk/identity-memory';
+import { IdentityModule } from '@apxon-jk/identity';
+import { createMemoryAdapters } from '@apxon-jk/identity-memory';
 
 const adapters = createMemoryAdapters();
 

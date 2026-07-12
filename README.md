@@ -2,7 +2,7 @@
 
 A reusable, enterprise-grade Identity & Authentication package for NestJS applications using Clean Architecture and Hexagonal Architecture (Ports & Adapters).
 
-**Package:** `@jk/identity`
+**Package:** `@apxon-jk/identity`
 
 > **Early access (v0.3.x)** — This package is usable and tested, but you must provide your own adapters (database, email, audit). Memory adapters live in this repository under `examples/memory` and are **not** published to npm yet. Clone the repo for the playground and reference implementations.
 
@@ -233,7 +233,7 @@ Ports are defined but not yet implemented. Wire adapters when adding these featu
 ## Install
 
 ```bash
-npm install @jk/identity
+npm install @apxon-jk/identity
 ```
 
 ---
@@ -241,7 +241,7 @@ npm install @jk/identity
 ## Usage
 
 ```typescript
-import { IdentityModule } from '@jk/identity';
+import { IdentityModule } from '@apxon-jk/identity';
 
 @Module({
   imports: [
@@ -296,7 +296,7 @@ See [docs/README.md](docs/README.md) for integration guides, adapter examples, a
 Memory adapters are available when you **clone this repository**. They are not published to npm.
 
 ```typescript
-import { createMemoryAdapters } from '@jk/identity-memory';
+import { createMemoryAdapters } from '@apxon-jk/identity-memory';
 ```
 
 See [examples/memory/README.md](examples/memory/README.md).

@@ -9,14 +9,14 @@
     "examples/*"
   ],
   "scripts": {
-    "build": "npm run build --workspace=@jk/identity && npm run build --workspace=@jk/identity-memory && npm run build --workspace=@jk/identity-playground",
+    "build": "npm run build --workspace=@apxon-jk/identity && npm run build --workspace=@apxon-jk/identity-memory && npm run build --workspace=@apxon-jk/identity-playground",
     "lint": "npm run lint --workspaces --if-present",
-    "test": "npm run test --workspace=@jk/identity",
-    "test:unit": "npm run test:unit --workspace=@jk/identity",
-    "test:integration": "npm run test:integration --workspace=@jk/identity",
-    "test:e2e": "npm run test:e2e --workspace=@jk/identity",
-    "test:cov": "npm run test:cov --workspace=@jk/identity",
-    "playground": "npm run start:dev --workspace=@jk/identity-playground",
+    "test": "npm run test --workspace=@apxon-jk/identity",
+    "test:unit": "npm run test:unit --workspace=@apxon-jk/identity",
+    "test:integration": "npm run test:integration --workspace=@apxon-jk/identity",
+    "test:e2e": "npm run test:e2e --workspace=@apxon-jk/identity",
+    "test:cov": "npm run test:cov --workspace=@apxon-jk/identity",
+    "playground": "npm run start:dev --workspace=@apxon-jk/identity-playground",
     "format": "prettier --write \"**/*.{ts,json,md}\""
   },
   "engines": {

@@ -1,4 +1,4 @@
-import type { IdentityAdapters } from '@jk/identity';
+import type { IdentityAdapters } from '@apxon-jk/identity';
 import { MemoryAuditAdapter } from './memory-audit.adapter';
 import { MemoryCredentialRepository } from './memory-credential.repository';
 import { MemoryIdentityProviderRepository } from './memory-identity-provider.repository';

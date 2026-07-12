@@ -17,8 +17,8 @@
     "noFallthroughCasesInSwitch": true,
     "esModuleInterop": true,
     "paths": {
-      "@jk/identity": ["./src"],
-      "@jk/identity/*": ["./src/*"]
+      "@apxon-jk/identity": ["./src"],
+      "@apxon-jk/identity/*": ["./src/*"]
     }
   },
   "include": ["src/**/*"],

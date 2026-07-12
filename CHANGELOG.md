@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to `@jk/identity` are documented in this file.
+All notable changes to `@apxon-jk/identity` are documented in this file.
 
 ## v0.3.0
 

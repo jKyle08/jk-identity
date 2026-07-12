@@ -1,4 +1,4 @@
-import { EmailAdapter } from '@jk/identity';
+import { EmailAdapter } from '@apxon-jk/identity';
 
 export interface MemoryEmailRecord {
   to: string;

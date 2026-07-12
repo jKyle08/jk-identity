@@ -1,4 +1,4 @@
-import { StorageAdapter } from '@jk/identity';
+import { StorageAdapter } from '@apxon-jk/identity';
 
 /**
  * In-memory implementation of {@link StorageAdapter}.

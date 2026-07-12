@@ -7,7 +7,7 @@ import {
   RefreshToken,
   SessionRepository,
   VerificationToken,
-} from '@jk/identity';
+} from '@apxon-jk/identity';
 import { MemoryVerificationRepository } from './memory-verification.repository';
 
 /**
