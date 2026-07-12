@@ -4,10 +4,13 @@ import { VerificationToken } from '../entities/verification-token';
 import { PasswordResetToken } from '../entities/password-reset-token';
 
 export interface SessionMetadata {
+  deviceName?: string;
+  /** @deprecated Use deviceName instead. */
   device?: string;
   browser?: string;
   operatingSystem?: string;
   ipAddress?: string;
+  country?: string;
   userAgent?: string;
 }
 

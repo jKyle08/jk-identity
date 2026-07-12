@@ -3,9 +3,12 @@ import { SecurityEventType } from '../value-objects/security-event-type';
 export interface LoginAuditMetadata {
   ipAddress?: string;
   userAgent?: string;
+  deviceName?: string;
+  /** @deprecated Use deviceName instead. */
   device?: string;
   browser?: string;
   operatingSystem?: string;
+  country?: string;
 }
 
 export interface AuditAdapter {

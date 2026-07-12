@@ -1,7 +1,6 @@
-import { DomainEvent } from '../events/domain-event';
-
-export interface EventPublisher {
-  publish(event: DomainEvent): Promise<void>;
-}
-
-export const EVENT_PUBLISHER = Symbol('EVENT_PUBLISHER');
+export {
+  EventBus,
+  EVENT_BUS,
+  EventPublisher,
+  EVENT_PUBLISHER,
+} from './event-bus.port';

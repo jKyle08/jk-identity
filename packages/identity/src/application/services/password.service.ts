@@ -3,7 +3,7 @@ import {
   PASSWORD_HASHER,
   PasswordHasher,
 } from '../../domain/ports/password-hasher.port';
-import { validatePasswordStrength } from '../../utils/password';
+import { Password } from '../../domain/value-objects/password';
 
 @Injectable()
 export class PasswordService {
@@ -13,7 +13,7 @@ export class PasswordService {
   ) {}
 
   async hash(password: string): Promise<string> {
-    validatePasswordStrength(password);
+    Password.create(password);
     return this.passwordHasher.hash(password);
   }
 
@@ -22,6 +22,6 @@ export class PasswordService {
   }
 
   validateStrength(password: string): void {
-    validatePasswordStrength(password);
+    Password.create(password);
   }
 }

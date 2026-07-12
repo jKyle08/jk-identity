@@ -2,10 +2,12 @@ export interface IdentitySessionProps {
   id: string;
   identityId: string;
   refreshTokenId: string;
-  device?: string | null;
+  refreshTokenHash?: string | null;
+  deviceName?: string | null;
   browser?: string | null;
   operatingSystem?: string | null;
   ipAddress?: string | null;
+  country?: string | null;
   userAgent?: string | null;
   expiresAt: Date;
   lastActivityAt: Date;
@@ -49,8 +51,17 @@ export class IdentitySession {
     return this.props.refreshTokenId;
   }
 
+  get refreshTokenHash(): string | null | undefined {
+    return this.props.refreshTokenHash;
+  }
+
+  get deviceName(): string | null | undefined {
+    return this.props.deviceName;
+  }
+
+  /** @deprecated Use deviceName instead. */
   get device(): string | null | undefined {
-    return this.props.device;
+    return this.props.deviceName;
   }
 
   get browser(): string | null | undefined {
@@ -63,6 +74,10 @@ export class IdentitySession {
 
   get ipAddress(): string | null | undefined {
     return this.props.ipAddress;
+  }
+
+  get country(): string | null | undefined {
+    return this.props.country;
   }
 
   get userAgent(): string | null | undefined {

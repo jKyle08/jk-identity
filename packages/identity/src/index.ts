@@ -16,22 +16,27 @@ export {
 // Domain - Entities
 export {
   Identity,
+  IdentityProfile,
   IdentityProvider,
   IdentitySession,
   RefreshToken,
   VerificationToken,
   PasswordResetToken,
+  AuditEvent,
   LoginHistory,
   SecurityEvent,
 } from './domain/entities';
 
 export type {
   IdentityProps,
+  IdentityAuthProps,
+  IdentityProfileProps,
   IdentityProviderProps,
   IdentitySessionProps,
   RefreshTokenProps,
   VerificationTokenProps,
   PasswordResetTokenProps,
+  AuditEventProps,
   LoginHistoryProps,
   SecurityEventProps,
 } from './domain/entities';
@@ -42,7 +47,15 @@ export {
   Email,
   Gender,
   ProviderType,
+  AuditEventType,
   SecurityEventType,
+  toAuditEventType,
+  FullName,
+  PhoneNumber,
+  Password,
+  DisplayName,
+  Country,
+  Timezone,
 } from './domain/value-objects';
 
 // Domain - Events
@@ -81,7 +94,13 @@ export type {
   TokenServicePort,
   TokenPayload,
   TokenPair,
+  EventBus,
   EventPublisher,
+  PasskeyAdapter,
+  MfaAdapter,
+  MagicLinkAdapter,
+  DeviceTrustAdapter,
+  AuthenticatorAdapter,
 } from './domain/ports';
 
 export {
@@ -94,7 +113,13 @@ export {
   AUTH_PROVIDER,
   PASSWORD_HASHER,
   TOKEN_SERVICE,
+  EVENT_BUS,
   EVENT_PUBLISHER,
+  PASSKEY_ADAPTER,
+  MFA_ADAPTER,
+  MAGIC_LINK_ADAPTER,
+  DEVICE_TRUST_ADAPTER,
+  AUTHENTICATOR_ADAPTER,
 } from './domain/ports';
 
 // Application Services
@@ -128,6 +153,7 @@ export type {
 // Infrastructure - Auth Providers
 export { BaseAuthProvider } from './infrastructure/oauth/base-auth-provider';
 export { GoogleAuthProvider } from './infrastructure/oauth/google-auth-provider';
+export { InMemoryEventBus, InMemoryEventPublisher } from './infrastructure/events/in-memory-event-bus';
 
 // Presentation
 export {
@@ -148,10 +174,11 @@ export { CurrentIdentity } from './presentation/decorators';
 export { JwtAuthGuard, GoogleAuthGuard, LocalAuthGuard, IdentityGuard } from './presentation/guards';
 export { IdentityExceptionFilter, GlobalIdentityExceptionFilter } from './presentation/filters/identity-exception.filter';
 
-// Utilities & Exceptions
-export * from './utils/exceptions';
-export { validatePasswordStrength, parseUserAgent } from './utils/password';
-export { generateSecureToken, generateId, normalizeEmail } from './utils';
+// Shared - Utilities & Exceptions
+export * from './shared/exceptions';
+export { validatePasswordStrength, parseUserAgent } from './shared/utils/password';
+export type { ParsedUserAgent } from './shared/utils/password';
+export { generateSecureToken, generateId, normalizeEmail } from './shared/utils';
 
 // Constants
-export * from './constants';
+export * from './shared/constants';

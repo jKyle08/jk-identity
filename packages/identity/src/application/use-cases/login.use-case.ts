@@ -108,7 +108,7 @@ export class LoginUseCase {
     if (this.options.sendLoginNotification) {
       await this.emailAdapter.sendLoginNotification(identity.primaryEmail, {
         ipAddress: input.metadata?.ipAddress,
-        device: input.metadata?.device,
+        device: input.metadata?.deviceName ?? input.metadata?.device,
         browser: input.metadata?.browser,
         operatingSystem: input.metadata?.operatingSystem,
         timestamp: new Date(),

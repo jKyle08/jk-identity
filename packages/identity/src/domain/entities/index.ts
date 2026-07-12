@@ -1,5 +1,7 @@
 export { Identity } from './identity';
-export type { IdentityProps } from './identity';
+export type { IdentityProps, IdentityAuthProps } from './identity';
+export { IdentityProfile } from './identity-profile';
+export type { IdentityProfileProps } from './identity-profile';
 export { IdentityProvider } from './identity-provider';
 export type { IdentityProviderProps } from './identity-provider';
 export { IdentitySession } from './identity-session';
@@ -10,6 +12,8 @@ export { VerificationToken } from './verification-token';
 export type { VerificationTokenProps } from './verification-token';
 export { PasswordResetToken } from './password-reset-token';
 export type { PasswordResetTokenProps } from './password-reset-token';
+export { AuditEvent } from './audit-event';
+export type { AuditEventProps } from './audit-event';
 export { LoginHistory } from './login-history';
 export type { LoginHistoryProps } from './login-history';
 export { SecurityEvent } from './security-event';

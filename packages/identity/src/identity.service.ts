@@ -3,22 +3,19 @@ import {
   IDENTITY_REPOSITORY,
   IdentityRepository,
 } from './domain/ports/identity.repository';
-import {
-  EVENT_PUBLISHER,
-  EventPublisher,
-} from './domain/ports/event-publisher.port';
+import { EVENT_BUS, EventBus } from './domain/ports/event-bus.port';
 import { DomainEvent } from './domain/events/domain-event';
-import { IdentityNotFoundException } from './utils/exceptions';
+import { IdentityNotFoundException } from './shared/exceptions';
 import { toIdentityResponse } from './presentation/interceptors/auth-response.mapper';
-import { InMemoryEventPublisher } from './infrastructure/events/in-memory-event-publisher';
+import { InMemoryEventBus } from './infrastructure/events/in-memory-event-bus';
 
 @Injectable()
 export class IdentityService {
   constructor(
     @Inject(IDENTITY_REPOSITORY)
     private readonly identityRepository: IdentityRepository,
-    @Inject(EVENT_PUBLISHER)
-    private readonly eventPublisher: EventPublisher,
+    @Inject(EVENT_BUS)
+    private readonly eventBus: EventBus,
   ) {}
 
   async findById(id: string) {
@@ -38,8 +35,8 @@ export class IdentityService {
   }
 
   onDomainEvent(eventName: string, handler: (event: DomainEvent) => void): void {
-    if (this.eventPublisher instanceof InMemoryEventPublisher) {
-      this.eventPublisher.on(eventName, handler);
+    if (this.eventBus instanceof InMemoryEventBus) {
+      this.eventBus.subscribe(eventName, handler);
     }
   }
 }

@@ -1,3 +1,9 @@
+import { AuditEventType } from '../value-objects/audit-event-type';
+import { AuditEvent, AuditEventProps } from './audit-event';
+
+/**
+ * @deprecated Use AuditEvent instead.
+ */
 export interface LoginHistoryProps {
   id: string;
   identityId: string;
@@ -11,6 +17,9 @@ export interface LoginHistoryProps {
   createdAt: Date;
 }
 
+/**
+ * @deprecated Use AuditEvent instead.
+ */
 export class LoginHistory {
   private constructor(private readonly props: LoginHistoryProps) {}
 
@@ -25,6 +34,36 @@ export class LoginHistory {
 
   static reconstitute(props: LoginHistoryProps): LoginHistory {
     return new LoginHistory(props);
+  }
+
+  static fromAuditEvent(event: AuditEvent): LoginHistory {
+    return LoginHistory.reconstitute({
+      id: event.id,
+      identityId: event.identityId ?? '',
+      success: event.success,
+      ipAddress: event.ipAddress,
+      userAgent: event.userAgent,
+      device: event.deviceName,
+      browser: event.browser,
+      operatingSystem: event.operatingSystem,
+      failureReason: event.failureReason,
+      createdAt: event.createdAt,
+    });
+  }
+
+  toAuditEvent(): AuditEvent {
+    return AuditEvent.create({
+      id: this.props.id,
+      identityId: this.props.identityId,
+      type: this.props.success ? AuditEventType.LOGIN : AuditEventType.FAILED_LOGIN,
+      ipAddress: this.props.ipAddress,
+      userAgent: this.props.userAgent,
+      deviceName: this.props.device,
+      browser: this.props.browser,
+      operatingSystem: this.props.operatingSystem,
+      failureReason: this.props.failureReason,
+      createdAt: this.props.createdAt,
+    });
   }
 
   get id(): string {
@@ -71,3 +110,5 @@ export class LoginHistory {
     return { ...this.props };
   }
 }
+
+export type { AuditEventProps };

@@ -5,7 +5,6 @@ import { IDENTITY_MODULE_OPTIONS } from '../../config/identity-module.options';
 import type { IdentityModuleOptions } from '../../config/identity-module.options';
 import { ProviderType } from '../../domain/value-objects/provider-type';
 import { OAuthLoginUseCase } from '../../application/use-cases/oauth-login.use-case';
-import { parseUserAgent } from '../../utils/password';
 
 interface GoogleProfile {
   id: string;

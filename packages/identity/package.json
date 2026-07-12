@@ -1,6 +1,6 @@
 {
   "name": "@jk/identity",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A reusable, enterprise-grade Identity & Authentication package for NestJS applications using Clean Architecture and Hexagonal Architecture (Ports & Adapters).",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

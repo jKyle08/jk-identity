@@ -15,7 +15,7 @@ import { STORAGE_ADAPTER } from './domain/ports/storage.adapter';
 import { SMS_ADAPTER } from './domain/ports/sms.adapter';
 import { PASSWORD_HASHER } from './domain/ports/password-hasher.port';
 import { TOKEN_SERVICE } from './domain/ports/token-service.port';
-import { EVENT_PUBLISHER } from './domain/ports/event-publisher.port';
+import { EVENT_BUS } from './domain/ports/event-bus.port';
 
 import { PasswordService } from './application/services/password.service';
 import { TokenService } from './application/services/token.service';
@@ -31,7 +31,7 @@ import { OAuthLoginUseCase } from './application/use-cases/oauth-login.use-case'
 
 import { Argon2PasswordHasher } from './infrastructure/hashing/argon2-password-hasher';
 import { JwtTokenService } from './infrastructure/jwt/jwt-token.service';
-import { InMemoryEventPublisher } from './infrastructure/events/in-memory-event-publisher';
+import { InMemoryEventBus } from './infrastructure/events/in-memory-event-bus';
 import { LocalStrategy } from './infrastructure/passport/local.strategy';
 import { JwtStrategy } from './infrastructure/passport/jwt.strategy';
 import { GoogleStrategy } from './infrastructure/passport/google.strategy';
@@ -60,7 +60,7 @@ const APPLICATION_PROVIDERS = [
 const INFRASTRUCTURE_PROVIDERS = [
   { provide: PASSWORD_HASHER, useClass: Argon2PasswordHasher },
   { provide: TOKEN_SERVICE, useClass: JwtTokenService },
-  { provide: EVENT_PUBLISHER, useClass: InMemoryEventPublisher },
+  { provide: EVENT_BUS, useClass: InMemoryEventBus },
   LocalStrategy,
   JwtStrategy,
   GoogleAuthProvider,
@@ -130,7 +130,7 @@ export class IdentityModule {
         SESSION_REPOSITORY,
         EMAIL_ADAPTER,
         AUDIT_ADAPTER,
-        EVENT_PUBLISHER,
+        EVENT_BUS,
       ],
     };
   }

@@ -9,8 +9,9 @@ import {
   EventPublisher,
 } from '../../domain/ports/event-publisher.port';
 import { IdentityCreatedEvent } from '../../domain/events/identity-created.event';
-import { EmailAlreadyExistsException } from '../../utils/exceptions';
-import { normalizeEmail } from '../../utils';
+import { Email } from '../../domain/value-objects/email';
+import { Password } from '../../domain/value-objects/password';
+import { EmailAlreadyExistsException } from '../../shared/exceptions';
 import { PasswordService } from '../services/password.service';
 import { EmailVerificationService } from '../services/email-verification.service';
 
@@ -39,13 +40,14 @@ export class RegisterUseCase {
   ) {}
 
   async execute(input: RegisterInput) {
-    const email = normalizeEmail(input.email);
+    const email = Email.create(input.email).toString();
     const existing = await this.identityRepository.findByEmail(email);
 
     if (existing) {
       throw new EmailAlreadyExistsException();
     }
 
+    Password.create(input.password);
     const passwordHash = await this.passwordService.hash(input.password);
 
     const identity = await this.identityRepository.create({
