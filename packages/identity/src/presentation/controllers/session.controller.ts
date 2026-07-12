@@ -1,4 +1,5 @@
 import { Controller, Delete, Get, Param, UseGuards } from '@nestjs/common';
+import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { SessionService } from '../../application/services/session.service';
 import {
   IDENTITY_REPOSITORY,
@@ -10,6 +11,8 @@ import { CurrentIdentity } from '../decorators';
 import { toIdentityResponse } from '../interceptors/auth-response.mapper';
 import { IdentityNotFoundException } from '../../utils/exceptions';
 
+@ApiTags('sessions')
+@ApiBearerAuth()
 @Controller('sessions')
 @UseGuards(JwtAuthGuard)
 export class SessionController {

@@ -1,8 +1,7 @@
 import { Module } from '@nestjs/common';
 import { IdentityModule } from '@jk/identity';
-import { createMemoryAdapters } from '@jk/identity-memory';
-
-const adapters = createMemoryAdapters();
+import { adapters } from './adapters';
+import { DevController } from './dev.controller';
 
 @Module({
   imports: [
@@ -32,5 +31,6 @@ const adapters = createMemoryAdapters();
       },
     }),
   ],
+  controllers: [DevController],
 })
 export class AppModule {}

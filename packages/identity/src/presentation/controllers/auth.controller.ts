@@ -8,6 +8,7 @@ import {
   Req,
   UseGuards,
 } from '@nestjs/common';
+import { ApiBearerAuth, ApiOperation, ApiTags } from '@nestjs/swagger';
 import { Request } from 'express';
 import { RegisterUseCase } from '../../application/use-cases/register.use-case';
 import { LoginUseCase } from '../../application/use-cases/login.use-case';
@@ -32,6 +33,7 @@ import { toAuthResponse, toIdentityResponse } from '../interceptors/auth-respons
 import { parseUserAgent } from '../../utils/password';
 import { SessionExpiredException } from '../../utils/exceptions';
 
+@ApiTags('auth')
 @Controller('auth')
 export class AuthController {
   constructor(
@@ -45,12 +47,14 @@ export class AuthController {
   ) {}
 
   @Post('register')
+  @ApiOperation({ summary: 'Register a new identity' })
   async register(@Body() dto: RegisterDto) {
     const identity = await this.registerUseCase.execute(dto);
     return { identity: toIdentityResponse(identity) };
   }
 
   @Post('login')
+  @ApiOperation({ summary: 'Login with email and password' })
   @HttpCode(HttpStatus.OK)
   async login(@Body() dto: LoginDto, @Req() req: Request) {
     const userAgent = parseUserAgent(req.headers['user-agent']);
@@ -68,6 +72,8 @@ export class AuthController {
   }
 
   @Post('logout')
+  @ApiBearerAuth()
+  @ApiOperation({ summary: 'Logout current session' })
   @UseGuards(JwtAuthGuard)
   @HttpCode(HttpStatus.NO_CONTENT)
   async logout(
@@ -78,6 +84,8 @@ export class AuthController {
   }
 
   @Post('logout-all')
+  @ApiBearerAuth()
+  @ApiOperation({ summary: 'Logout all sessions' })
   @UseGuards(JwtAuthGuard)
   @HttpCode(HttpStatus.NO_CONTENT)
   async logoutAll(@CurrentIdentity('identityId') identityId: string) {
