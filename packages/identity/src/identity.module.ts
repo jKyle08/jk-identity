@@ -7,6 +7,7 @@ import {
   IDENTITY_MODULE_OPTIONS,
   IdentityModuleOptions,
 } from './config/identity-module.options';
+import { validateIdentityModuleOptions } from './config/validate-identity-module.options';
 import { IDENTITY_REPOSITORY } from './domain/ports/identity.repository';
 import { SESSION_REPOSITORY } from './domain/ports/session.repository';
 import { EMAIL_ADAPTER } from './domain/ports/email.adapter';
@@ -66,9 +67,35 @@ const INFRASTRUCTURE_PROVIDERS = [
   GoogleAuthProvider,
 ];
 
+/**
+ * NestJS module for identity and authentication.
+ *
+ * Register with {@link IdentityModule.register} and provide adapter implementations
+ * for your persistence and notification infrastructure.
+ *
+ * @example
+ * ```ts
+ * IdentityModule.register({
+ *   adapters: createMemoryAdapters(),
+ *   auth: {
+ *     jwtSecret: process.env.JWT_SECRET!,
+ *     jwtRefreshSecret: process.env.JWT_REFRESH_SECRET!,
+ *     accessTokenExpiration: '15m',
+ *     refreshTokenExpiration: '30d',
+ *   },
+ * })
+ * ```
+ */
 @Module({})
 export class IdentityModule {
+  /**
+   * Registers the identity module with consumer-provided adapters and configuration.
+   *
+   * @param options - Adapters, JWT auth config, and optional OAuth/rate-limit settings
+   * @throws Error when required adapters or auth configuration are missing
+   */
   static register(options: IdentityModuleOptions): DynamicModule {
+    validateIdentityModuleOptions(options);
     const adapterProviders: Provider[] = [
       { provide: IDENTITY_MODULE_OPTIONS, useValue: options },
       { provide: IDENTITY_REPOSITORY, useValue: options.adapters.identityRepository },

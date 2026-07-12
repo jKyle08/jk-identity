@@ -281,7 +281,21 @@ If you implemented `IdentityRepository` for v0.1.0, persist identity auth fields
 npm install
 npm run build
 npm run lint
+npm test
+npm run playground   # http://localhost:3000 — Swagger at /api
 ```
+
+### Documentation
+
+See [docs/README.md](docs/README.md) for integration guides, adapter examples, and architecture.
+
+### Memory Adapters (local dev / testing)
+
+```bash
+import { createMemoryAdapters } from '@jk/identity-memory';
+```
+
+See [examples/memory/README.md](examples/memory/README.md).
 
 ---
 

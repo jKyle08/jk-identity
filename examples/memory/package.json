@@ -1,0 +1,20 @@
+{
+  "name": "@jk/identity-memory",
+  "version": "0.3.0",
+  "private": true,
+  "description": "In-memory reference adapters for @jk/identity — for development and testing only",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@jk/identity": "*"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.0"
+  }
+}

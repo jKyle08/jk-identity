@@ -1,5 +1,6 @@
 export const IDENTITY_MODULE_OPTIONS = 'IDENTITY_MODULE_OPTIONS';
 
+/** JWT signing and expiration configuration for access and refresh tokens. */
 export interface AuthConfig {
   jwtSecret: string;
   jwtRefreshSecret: string;
@@ -7,6 +8,7 @@ export interface AuthConfig {
   refreshTokenExpiration: string;
 }
 
+/** Google OAuth client configuration. Enabled when provided to {@link IdentityModule.register}. */
 export interface GoogleOAuthConfig {
   clientId: string;
   clientSecret: string;
@@ -22,6 +24,7 @@ export interface RateLimitConfig {
   lockoutDurationMinutes?: number;
 }
 
+/** Consumer-provided adapter implementations for persistence and notifications. */
 export interface IdentityAdapters {
   identityRepository: import('../domain/ports/identity.repository').IdentityRepository;
   sessionRepository: import('../domain/ports/session.repository').SessionRepository;
@@ -31,6 +34,12 @@ export interface IdentityAdapters {
   smsAdapter?: import('../domain/ports/sms.adapter').SmsAdapter;
 }
 
+/**
+ * Options for {@link IdentityModule.register}.
+ *
+ * Required: `adapters` (identityRepository, sessionRepository, emailAdapter, auditAdapter)
+ * and `auth` (JWT secrets and token expiration).
+ */
 export interface IdentityModuleOptions {
   adapters: IdentityAdapters;
   auth: AuthConfig;
